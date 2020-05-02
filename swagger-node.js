@@ -1,5 +1,6 @@
 const Converter = require('api-spec-converter');
 const OpenApiConverter = require('swagger2openapi');
+const fs = require('fs');
 
 module.exports = function (RED) {
 
@@ -42,8 +43,13 @@ module.exports = function (RED) {
               node.status({ fill: 'red', shape: 'ring', text: 'no input'});
               return;
             }
+            let source_content = message.payload;
+            if(source_content.endsWith(".json")) {
+                source_content = fs.readFileSync(source_content);
+            }
+
             let options = {};
-            OpenApiConverter.convertStr(message.payload, options, function (err, options) {
+            OpenApiConverter.convertStr(source_content, options, function (err, options) {
               if (err) {
                 console.error(err);
                 node.error(err);
