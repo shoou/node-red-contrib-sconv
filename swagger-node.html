@@ -1,0 +1,91 @@
+<script type="text/javascript">
+    RED.nodes.registerType('swagger2', {
+        category: 'OpenAPI',
+        color: '#FFFFFF',
+        defaults: {
+            source: {value: ''}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'converter.png',
+        label: function () {
+            return this.name || 'Swagger 2.0';
+        }
+    });
+</script>
+
+<script data-template-name="swagger2" type="text/x-red">
+    <div class="form-row">
+        <label for="node-input-name">
+        <i class="fa fa-tag"></i>Source</label>
+        <input type="text" id="node-input-source" placeholder="Filename, URL, or JS object for the source">
+    </div>
+</script>
+
+<script data-help-name="swagger2" type="text/x-red">
+    <p>Convert OpenAPI 3.0 to Swagger 2.0</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string | buffer</span>
+        </dt>
+        <dd> OpenAPI 3.0 json file path or URL.</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+        <dl class="message-properties">
+             <dt>payload <span class="property-type">string</span></dt>
+             <dd>output of the converting result.</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p><code>msg.payload</code> is used as the payload of the OpenAPI source.
+        it can be Filename or URL.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('OpenAPI3', {
+        category: 'OpenAPI',
+        color: '#FFFFFF',
+        defaults: {
+            source: {value: '',}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'converter.png',
+        label: function () {
+            return this.name || 'OpenAPI 3.0';
+        }
+    });
+</script>
+
+<script data-template-name="OpenAPI3" type="text/x-red">
+    <div class="form-row">
+      <label for="node-input-name">
+      <i class="fa fa-tag"></i>Source:</label>
+      <input type="text" id="node-input-source" placeholder="Swagger 2.0 Json file path or URL">
+    </div>
+</script>
+
+<script data-help-name="OpenAPI3" type="text/x-red">
+    <p>Convert Swagger 2.0 to OpenAPI 3.0</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">string | buffer</span>
+        </dt>
+        <dd> Swagger 2.0 json file path or URL.</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+        <dl class="message-properties">
+            <dt>payload <span class="property-type">string</span></dt>
+            <dd>output of the converting result.</dd>
+        </dl>
+
+<h3>Details</h3>
+    <p><code>msg.payload</code> is used as the payload of the Swagger 2.0 source.
+    it can be Filename or URL.</p>
+</script>

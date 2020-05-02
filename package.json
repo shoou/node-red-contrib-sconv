@@ -1,0 +1,24 @@
+{
+  "name": "node-red-contrib-sconv",
+  "version": "1.0.1",
+  "description": "Transfer between Swagger 2.0 and OpenAPI 3.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "swagger",
+    "openapi"
+  ],
+"node-red" : {
+        "nodes": {
+            "swagger-node": "swagger-node.js"
+        }
+    },
+"dependencies": {
+    "api-spec-converter": "^2.11.0",
+    "swagger2openapi":"^6.0.3"
+  },
+  "author": "albert",
+  "license": "MIT"
+}
